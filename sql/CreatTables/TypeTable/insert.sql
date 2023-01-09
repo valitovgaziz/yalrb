@@ -1,0 +1,1 @@
+INSERT INTO type (type_name, description) VALUES ('No type', 'No description');
