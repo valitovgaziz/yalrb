@@ -1,20 +1,19 @@
-
 create table if not exists object
 (
-    id                    uuid        not null unique primary key,
-    type_id               smallint    not null references type default 0,
-    name                  varchar(20),
-    short_description     character(500),
-    full_description      character(1500),
-    owner_id              integer     not null                 default 1,
-    rate_id               smallint    not null,
-    state_id              smallint    not null,
-    start_time            timestamptz null                     default null,
-    end_time              timestamptz null                     default null,
-    created_time          timestamptz not null,
-    location_access_level smallint    not null                 default 0,
-    id_availability_score smallint    not null                 default 0,
-    id_workload_state     smallint    not null                 default 0
+    id                    uuid            not null unique primary key       default gen_random_uuid(),
+    type_id               smallint        not null references rest_type     default 0,
+    object_name           varchar(20)     not null unique                   default 'None',
+    short_description     character(500)  not null                          default 'None',
+    full_description      character(1500) not null                          default 'None',
+    owner_id              integer         not null references account       default 1,
+    rate_id               smallint        not null references rate          default 0,
+    state_id              smallint        not null references state         default 0,
+    start_time            timestamptz     null                              default null,
+    end_time              timestamptz     null                              default null,
+    created_time          timestamptz     not null                          default now(),
+    level_id              smallint        not null references account_level default 0,
+    id_availability_score smallint        not null                          default 0,
+    id_workload_state     smallint        not null                          default 0
 );
 
 create table if not exists object_contact
@@ -73,10 +72,10 @@ create table if not exists account
     state_id          smallint           not null default 0 references state,
     created_date_time timestamptz        not null,
     role_id           smallint           not null default 0 references role,
-    level_id          smallint           not null default 0 references level
+    level_id          smallint           not null default 0 references account_level
 );
 
-create table if not exists level
+create table if not exists account_level
 (
     id       serial primary key not null unique,
     level_id integer            not null references level_description,
@@ -136,4 +135,18 @@ create table if not exists meta_data_photo
     created_date_time timestamp      null,
     loaded_date_time  timestamptz    not null default now(),
     path_file_name    character(100) not null
+);
+
+create table if not exists availability_for
+(
+    id             serial primary key not null unique ,
+    av_name        character(30)      not null        default 'Non',
+    av_description character(200)     not null unique default 'Non'
+);
+
+create table if not exists object_availability
+(
+    id              uuid    not null unique default gen_random_uuid(),
+    availability_id integer not null references availability_for,
+    object_id       uuid    not null references object
 )

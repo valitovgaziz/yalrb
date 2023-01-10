@@ -1,1 +1,1 @@
-drop table if exists product;
+drop table if exists rest_type;

@@ -1,4 +1,4 @@
-create table if not exists type
+create table if not exists rest_type
 (
     id          serial primary key,
     type_name   character(30),
