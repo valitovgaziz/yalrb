@@ -1,7 +1,7 @@
 create table if not exists object
 (
     id                    uuid            not null unique primary key       default gen_random_uuid(),
-    type_id               smallint        not null references rest_type     default 0,
+    rest_type_id          smallint        not null references rest_type     default 0,
     object_name           varchar(20)     not null unique                   default 'None',
     short_description     character(500)  not null                          default 'None',
     full_description      character(1500) not null                          default 'None',
@@ -13,18 +13,19 @@ create table if not exists object
     created_time          timestamptz     not null                          default now(),
     level_id              smallint        not null references account_level default 0,
     id_availability_score smallint        not null                          default 0,
-    id_workload_state     smallint        not null                          default 0
+    id_workload_state     smallint        not null                          default 0,
+    site_link             character(300)  not null                          default 'No site'
 );
 
 create table if not exists object_contact
 (
     id           serial primary key unique not null,
-    object_id    uuid                      not null,
-    name_contact character(20)             not null default 'No name',
-    phone        character(20)             not null default 'No phone',
-    address      character(300)            not null default 'No address',
-    email        character(50)             not null default 'No email',
-    site_link    character(100)            not null default 'No site'
+    object_id    uuid                      not null references object,
+    name_contact character(20)             not null                  default 'No name',
+    phone        character(20)             not null                  default 'No phone',
+    address      character(300)            not null                  default 'No address',
+    email        character(50)             not null                  default 'No email',
+    state_id     smallint                  not null references state default 0
 );
 
 create table if not exists rate
