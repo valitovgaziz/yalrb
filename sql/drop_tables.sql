@@ -1,4 +1,4 @@
-drop table if exists rest_type;
+drop table if exists leisure_type;
 
 drop table if exists public.transport_type;
 

@@ -1,4 +1,4 @@
-create table if not exists rest_type
+create table if not exists leisure_type
 (
     id          serial primary key,
     type_name   character(30),

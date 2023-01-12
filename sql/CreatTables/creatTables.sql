@@ -1,7 +1,7 @@
 create table if not exists object
 (
     id                    uuid            not null unique primary key       default gen_random_uuid(),
-    rest_type_id          smallint        not null references rest_type     default 0,
+    rest_type_id          smallint        not null references leisure_type     default 0,
     object_name           varchar(20)     not null unique                   default 'None',
     short_description     character(500)  not null                          default 'None',
     full_description      character(1500) not null                          default 'None',
