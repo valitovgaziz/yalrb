@@ -174,33 +174,3 @@ VALUES ('СПА курорты', 'Спа-курорты — курорты, ко
 
 INSERT INTO leisure_sub_type (sub_type_name, description)
 VALUES ('экологический туризм', 'Экологический туризм это все виды туризма с соблюдением мер по сохранению, изучению и поддержанию экологии и экосистем в должном порядке. И не оставлять за собой мусор.');
-
-INSERT INTO leisure_sub_type (sub_type_name, description)
-VALUES ('', '');
-
-INSERT INTO leisure_sub_type (sub_type_name, description)
-VALUES ('', '');
-
-INSERT INTO leisure_sub_type (sub_type_name, description)
-VALUES ('', '');
-
-INSERT INTO leisure_sub_type (sub_type_name, description)
-VALUES ('', '');
-
-INSERT INTO leisure_sub_type (sub_type_name, description)
-VALUES ('', '');
-
-INSERT INTO leisure_sub_type (sub_type_name, description)
-VALUES ('', '');
-
-INSERT INTO leisure_sub_type (sub_type_name, description)
-VALUES ('', '');
-
-INSERT INTO leisure_sub_type (sub_type_name, description)
-VALUES ('', '');
-
-INSERT INTO leisure_sub_type (sub_type_name, description)
-VALUES ('', '');
-
-INSERT INTO leisure_sub_type (sub_type_name, description)
-VALUES ('', '');

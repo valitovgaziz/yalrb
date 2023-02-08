@@ -6,6 +6,8 @@ import org.hibernate.annotations.DialectOverride;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
+import java.util.Calendar;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -24,5 +26,26 @@ public class Account {
 
     @Column(name = "phone_number")
     String phone_number;
+
+    @Column(name = "gender")
+    String gender;
+
+    @Column(name = "email")
+    String email;
+
+    @Column(name = "state_id")
+    State state_id;
+
+    @Column(name = "created_date_time")
+    Calendar created_date_time;
+
+    @Column(name = "role_id")
+    Role account_role;
+
+    @Column(name = "score", columnDefinition = "integer default 0")
+    Integer score = 0;
+
+    @Column(name = "nickname", columnDefinition = "character(30) default 'турист'")
+    String nickname;
 
 }
