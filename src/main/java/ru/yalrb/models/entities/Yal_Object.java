@@ -19,10 +19,13 @@ public class Yal_Object {
     @Setter(AccessLevel.NONE)
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
+    @Column(nullable = false)
     @JdbcTypeCode(SqlTypes.UUID)
     private UUID id;
     private String name;
+
+    @Column(name = "long_name")
+    private String longName;
     @Column(name = "short_description")
     private String shortDescription;
     @Column(name = "full_description")
@@ -33,9 +36,9 @@ public class Yal_Object {
     private Byte rateId;
     @Column(name = "state_id")
     private Byte stateId;
-    @Column(name = "date_time_start")
+    @Column(name = "start_date_time")
     private Calendar dateTimeStart;
-    @Column(name = "date_time_end")
+    @Column(name = "end_date_time")
     private Calendar dateTimeEnd;
     @Column(name = "access_level")
     private Byte accessLevel;
