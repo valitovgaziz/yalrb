@@ -79,8 +79,9 @@ public class Yal_Object {
     @Column(name = "availability_score")
     private Byte availabilityScore;
 
-    @Column(name = "work_load_id")
-    private Byte workLoadId;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "yal_object")
+    @PrimaryKeyJoinColumn
+    private WorkLoadState workLoad;
 
 
 
