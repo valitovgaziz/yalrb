@@ -58,7 +58,7 @@ public class Yal_Object {
     private String fullDescription;
 
     @Column(name = "account_id")
-    private Integer accountId;
+    private Integer accountId; // TODO OneToMeny wil do.
 
 
     @Column(name = "state_id")
