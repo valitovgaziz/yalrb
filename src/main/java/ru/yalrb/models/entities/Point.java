@@ -21,9 +21,12 @@ public class Point {
     @JoinColumn(name = "yal_object_id")
     Yal_Object yal_object;
 
+    @Column(name = "longitude", columnDefinition = "float default 0.0")
     float longitude;
 
-
+    @Column(name = "latitude", columnDefinition = "float default 0.0")
     float latitude;
+
+
 
 }
