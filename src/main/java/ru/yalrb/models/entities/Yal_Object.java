@@ -27,6 +27,10 @@ public class Yal_Object {
     @JdbcTypeCode(SqlTypes.UUID)
     private UUID id;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "object_type_id", referencedColumnName = "id")
+    ObjectType object_type;
+
 
     @ManyToMany
     private ArrayList<LeisureType> leisure_types;
@@ -45,6 +49,7 @@ public class Yal_Object {
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "yal_object")
     @PrimaryKeyJoinColumn
     private Point point;
+
     @Column(name = "name")
     private String name;
 
@@ -82,7 +87,6 @@ public class Yal_Object {
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "yal_object")
     @PrimaryKeyJoinColumn
     private WorkLoadState workLoad;
-
 
 
 }
