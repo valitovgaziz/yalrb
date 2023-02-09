@@ -38,6 +38,13 @@ public class Yal_Object {
     @PrimaryKeyJoinColumn
     Contact contact;
 
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "yal_object")
+    @PrimaryKeyJoinColumn
+    private Rate rate;
+
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "yal_object")
+    @PrimaryKeyJoinColumn
+    private Point point;
     @Column(name = "name")
     private String name;
 
@@ -53,9 +60,6 @@ public class Yal_Object {
     @Column(name = "account_id")
     private Integer accountId;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "yal_object")
-    @PrimaryKeyJoinColumn
-    private Rate rate;
 
     @Column(name = "state_id")
     private Byte stateId;
@@ -76,5 +80,7 @@ public class Yal_Object {
 
     @Column(name = "work_load_id")
     private Byte workLoadId;
+
+
 
 }
