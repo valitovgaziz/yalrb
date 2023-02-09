@@ -2,13 +2,11 @@ package ru.yalrb.models.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 import java.util.UUID;
 
 
@@ -30,7 +28,6 @@ public class Yal_Object {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "object_type_id", referencedColumnName = "id")
     ObjectType object_type;
-
 
     @ManyToMany
     private ArrayList<LeisureType> leisure_types;
