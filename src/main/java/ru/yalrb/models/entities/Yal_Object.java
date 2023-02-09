@@ -2,6 +2,7 @@ package ru.yalrb.models.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
@@ -27,12 +28,15 @@ public class Yal_Object {
     private UUID id;
 
 
-
     @ManyToMany
     private ArrayList<LeisureType> leisure_types;
 
     @ManyToMany
     private ArrayList<LeisureSubType> leisureSubTypes;
+
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "yal_object")
+    @PrimaryKeyJoinColumn
+    Contact contact;
 
     @Column(name = "name")
     private String name;
@@ -49,8 +53,9 @@ public class Yal_Object {
     @Column(name = "account_id")
     private Integer accountId;
 
-    @Column(name = "rate_id")
-    private Byte rateId;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "yal_object")
+    @PrimaryKeyJoinColumn
+    private Rate rate;
 
     @Column(name = "state_id")
     private Byte stateId;
