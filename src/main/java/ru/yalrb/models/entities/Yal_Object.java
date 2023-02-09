@@ -48,6 +48,11 @@ public class Yal_Object {
     @Column(name = "name")
     private String name;
 
+
+    @ManyToOne
+    @JoinColumn(name = "yal_object_id", nullable = false)
+    private Account account;
+
     @Column(name = "long_name")
     private String longName;
 
@@ -56,10 +61,6 @@ public class Yal_Object {
 
     @Column(name = "full_description", length = 1500)
     private String fullDescription;
-
-    @Column(name = "account_id")
-    private Integer accountId; // TODO OneToMeny wil do.
-
 
     @Column(name = "state_id")
     private Byte stateId;

@@ -6,6 +6,7 @@ import org.hibernate.annotations.DialectOverride;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 @Getter
@@ -23,6 +24,9 @@ public class Account {
     @Column(name = "id", nullable = false)
     @JdbcTypeCode(SqlTypes.INTEGER)
     private Long id;
+
+    @OneToMany(mappedBy = "account")
+    ArrayList<Yal_Object> yalObjects;
 
     @Column(name = "phone_number")
     String phone_number;
