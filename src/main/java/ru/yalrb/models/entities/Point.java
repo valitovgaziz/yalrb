@@ -27,6 +27,4 @@ public class Point {
     @Column(name = "latitude", columnDefinition = "float default 0.0")
     float latitude;
 
-
-
 }
