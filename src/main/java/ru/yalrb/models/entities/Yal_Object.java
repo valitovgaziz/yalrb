@@ -17,6 +17,7 @@ import java.util.UUID;
 @Builder
 @Entity
 public class Yal_Object {
+
     @Getter(AccessLevel.NONE)
     @Setter(AccessLevel.NONE)
     @Id
