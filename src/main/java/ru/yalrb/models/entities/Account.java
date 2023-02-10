@@ -52,4 +52,7 @@ public class Account {
     @Column(name = "nickname", columnDefinition = "character(30) default 'турист'")
     String nickname;
 
+    @OneToMany(mappedBy = "moder")
+    ArrayList<Appeal> appeals;
+
 }

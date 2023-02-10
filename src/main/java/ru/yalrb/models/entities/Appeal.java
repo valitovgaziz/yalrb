@@ -33,8 +33,8 @@ public class Appeal {
 
     Calendar responseDateTime;
 
-    @OneToOne
-    @JoinColumn(name = "moder_id")
+    @ManyToOne
+    @JoinColumn(name = "moder_id", nullable = false)
     Account moder;
 
 }
