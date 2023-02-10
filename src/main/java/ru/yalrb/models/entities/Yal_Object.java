@@ -89,5 +89,7 @@ public class Yal_Object {
     @PrimaryKeyJoinColumn
     private WorkLoadState workLoad;
 
+    @OneToMany(mappedBy = "yal_object")
+    private ArrayList<Photo> photos;
 
 }
