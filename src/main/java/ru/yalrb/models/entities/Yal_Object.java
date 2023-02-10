@@ -48,6 +48,9 @@ public class Yal_Object {
     @PrimaryKeyJoinColumn
     private Point point;
 
+    @OneToMany(mappedBy = "feetBackAboutYalObject")
+    ArrayList<FeetBack> feetBacks;
+
     @Column(name = "name")
     private String name;
 

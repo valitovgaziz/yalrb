@@ -55,4 +55,7 @@ public class Account {
     @OneToMany(mappedBy = "moder")
     ArrayList<Appeal> appeals;
 
+    @OneToMany(mappedBy = "feetBackOwner")
+    ArrayList<FeetBack> feetBacks;
+
 }
